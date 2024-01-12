@@ -1,22 +1,24 @@
 import { Router } from "express";
+import * as controller from '../controllers/appController.js'
 const router = Router();
 
+
 /** POST Methods */
-router.route('/register').post((req,res)=> res.json("Register User")); // register user
+router.route('/register').post(controller.register); // register user
 router.route('/registerMail').post((req,res)=> res.json("Register Mail")); // send the email
 router.route('/authenticate').post((req,res)=> res.json("Authenticate User")); // authenticate user
-router.route('/login').post((req,res)=> res.json("Login User")); // login in app
+router.route('/login').post(controller.login); // login in app
 
 /** GET Methods */
-router.route('/user/:username').get((req,res)=> res.json("Get user with username")) // user with username
-router.route('/generateOTP').get((req,res)=> res.json("Generate Random OTP")) // generate random OTP
-router.route('/verifyOTP').get((req,res)=> res.json("Verify OTP")) // verify generated OTP
-router.route('/createResetSession').get((req,res)=> res.json("Reset all the variables")) // reset all the variables
+router.route('/user/:username').get(controller.getUser) // user with username
+router.route('/generateOTP').get(controller.generateOTP) // generate random OTP
+router.route('/verifyOTP').get(controller.verifyOTP) // verify generated OTP
+router.route('/createResetSession').get(controller.createResetSession) // reset all the variables
 
 
 /** PUT Methods */
-router.route('/updateuser').put((req,res)=> res.json("Update the user profile")); // is use to update the user profile
-router.route('/resetPassword').put((req,res)=> res.json("Reset Password")); // use to reset password
+router.route('/updateuser').put(controller.updateUser); // is use to update the user profile
+router.route('/resetPassword').put(controller.resetPassword); // use to reset password
 
 
 
