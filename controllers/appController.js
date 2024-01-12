@@ -1,3 +1,4 @@
+import { UserSchema } from "../models/userModel.js";
 
 
 /** POST: http://localhost:8080/api/register 
@@ -64,5 +65,5 @@ export async function createResetSession(req,res){
 // update the password when we have valid session
 /** PUT: http://localhost:8080/api/resetPassword */
 export async function resetPassword(req,res){
-    
+
 }
