@@ -1,10 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-import morgan from 'morgan';
 import connect from './database/conn.js';
+import morgan from 'morgan';
 import router from './router/rote.js';
 
+
 const app = express();
+
 
 /** Middlewares */
 
@@ -35,3 +37,5 @@ connect().then(() => {
 }).catch(error => {
     console.log("Invalid database connection...!");
 })
+
+
